@@ -17,9 +17,9 @@ JSON 이라는 데이터 구조 포맷으로 클라이언트에게 데이터 전
 @ResponseBody : HTML의 응답 바디에 이 데이터를 직접 넣겠다는 것<br>
 템플릿 엔진과의 차이: view 없이 문자 그대로 웹 브라우저에 전달<br>
 @ResponseBody를 사용할 시<br>
- - HTTP의 BODY에 문자 내용을 직접 반환<br>
- - viewResolver 대신에 httpMessageConverter가 동작<br>
- - 기본 문자처리: StringHttpMessageConverter<br>
- - 기본 객체처리: MappingJackson2HttpMessageConverter (객체를 json으로 바꾸어 주는 라이브러리가 Jackson)<br>
- - byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음<br>
+  - HTTP의 BODY에 문자 내용을 직접 반환<br>
+  - viewResolver 대신에 httpMessageConverter가 동작<br>
+  - 기본 문자처리: StringHttpMessageConverter<br>
+  - 기본 객체처리: MappingJackson2HttpMessageConverter (객체를 json으로 바꾸어 주는 라이브러리가 Jackson)<br>
+  - byte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음<br>
 
