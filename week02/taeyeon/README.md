@@ -1,4 +1,4 @@
-week2 spring study presentation 오태연
+week02 spring study presentation 오태연
 ================
 1. 비즈니스 요구사항 정리
 
