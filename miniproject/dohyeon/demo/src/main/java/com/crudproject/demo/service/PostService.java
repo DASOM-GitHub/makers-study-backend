@@ -16,10 +16,6 @@ import java.util.List;
 public class PostService {
     private final PostRepository postRepository;
 
-//    @Repository
-//    public interface PostRepository extends JpaRepository<Post, Long> {
-//        List<Post> findAllByOrderByModifiedAtDesc();
-//    }
     //게시글 전체조회
     @Transactional(readOnly = true)
     public List<PostResponseDto> getPosts() {
@@ -48,7 +44,11 @@ public class PostService {
     //게시글 작성
     @Transactional
     public PostResponseDto createPost(PostRequestDto postRequestDto) {
-        Post post = new Post();
+        Post post = new Post(
+                postRequestDto.getTitle(),
+                postRequestDto.getContent(),
+                postRequestDto.getAuthor()
+        );
         postRepository.save(post);
         return new PostResponseDto(post);
     }
