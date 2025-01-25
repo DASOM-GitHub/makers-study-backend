@@ -1,13 +1,9 @@
 package dmu.dasom.miniproject.domain;
 
-
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -15,17 +11,21 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post extends AutoTimestamp {
+public class Users extends AutoTimestamp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String userName;
 
     @Column(nullable = false)
-    private String content;
+    private String userEmail;
 
     @Column(nullable = false)
-    private String author;
+    private String userPassword;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserRole userRole;
 }
