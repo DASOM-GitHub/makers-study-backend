@@ -3,6 +3,7 @@ package dmu.dasom.miniproject.service;
 import dmu.dasom.miniproject.domain.Post;
 import dmu.dasom.miniproject.dto.PostDto;
 import dmu.dasom.miniproject.repository.PostRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,14 +38,13 @@ public class PostService {
         return PostDto.fromEntity(postRepository.save(post));
     }
 
+    @Transactional
     public PostDto updatePost(Long id, PostDto postDto){
         Post post = postRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
 
         post.setTitle(postDto.getTitle());
         post.setContent(postDto.getContent());
-        post.setUpdateDate(LocalDateTime.now());
-        postRepository.save(post);
 
         return PostDto.fromEntity(post);
     }

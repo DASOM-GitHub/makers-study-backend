@@ -16,16 +16,17 @@ public class PostDto {
     private Long id;
     private String title;
     private String content;
-    private LocalDateTime registerDate;
-    private LocalDateTime updateDate;
+    private String author;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
 
     public static PostDto fromEntity(Post post){
         return PostDto.builder()
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .registerDate(post.getRegisterDate())
-                .updateDate(post.getUpdateDate())
+                .createdDate(post.getCreatedDate())
+                .modifiedDate(post.getModifiedDate())
                 .build();
     }
 
@@ -33,6 +34,7 @@ public class PostDto {
         return Post.builder()
                 .title(this.title)
                 .content(this.content)
+                .author(this.author)
                 .build();
     }
 }
